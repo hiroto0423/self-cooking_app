@@ -55,5 +55,10 @@ class MealController extends Controller
     $meal->fill($form_content)->save();
     return redirect('/meals/'.$meal->id);
   }
+
+  public function delete(Meal $meal) {
+    $meal->delete();
+    return redirect('/meals');
+  }
 }
 

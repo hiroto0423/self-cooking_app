@@ -23,6 +23,7 @@ class CreateMealsTable extends Migration
             $table->integer('difficulty');
             $table->text('way',200);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

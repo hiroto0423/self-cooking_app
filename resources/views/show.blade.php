@@ -3,6 +3,12 @@
 @section('content')
 <div class="show-wrapper">
   <h1 class="show-wrapper__title">料理詳細</h1>
+  <a href="/meals/{{$meal->id}}/edit" class="show-detail__a">編集</a>
+  <form action="/meals/{{$meal->id}}/delete" method="POST">
+    @csrf
+    @method('DELETE')
+    <input type="submit" value="消去">
+  </form>
   <div class="show-img-container">
     <img src="{{ asset($meal->image->path) }}" alt="meal-card__img">
   </div>
