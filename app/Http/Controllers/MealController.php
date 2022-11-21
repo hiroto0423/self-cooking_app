@@ -39,5 +39,14 @@ class MealController extends Controller
     $meal->fill($form_content)->save();
     return redirect('/meals');
   }
+
+  public function show(Meal $meal) {
+    return view('show' ,['meal' => $meal]);
+  }
+
+  public function edit(Meal $meal) {
+    $categories = Category::all();
+    return view('edit' ,['meal' => $meal , 'categories' => $categories]);
+  }
 }
 

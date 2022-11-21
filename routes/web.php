@@ -21,5 +21,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('meals',[MealController::class, 'index']);
     Route::get('/meals/create',[MealController::class,'create']);
     Route::post('/meals/create',[MealController::class, 'store']);
+    Route::get('/meals/{meal}',[MealController::class, 'show']);
+    Route::get('/meals/{meal}/edit',[MealController::class, 'edit']);
 // });
 require __DIR__.'/auth.php';

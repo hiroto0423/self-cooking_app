@@ -20,8 +20,16 @@ class Meal extends Model
         return $this->BelongsTo(category::class);
     }
 
-    public function img()
+    public function image()
     {
-        return $this->BelongsTo(Img::class);
+        return $this->BelongsTo(Image::class);
+    }
+
+    public function isSelectedCategory($category_id) {
+        if ($this->category_id == $category_id) {
+            return 'selected';
+        } else {
+            return '';
+        };
     }
 }
