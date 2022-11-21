@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', function () {
         return view('index');
     });
+    Route::get('meals',[MealController::class, 'index']);
     Route::get('/meals/create',[MealController::class,'create']);
     Route::post('/meals/create',[MealController::class, 'store']);
 // });

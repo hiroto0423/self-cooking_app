@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 class MealController extends Controller
 {
 
+  public function index() {
+    $meals = Meal::all();
+    return view('index', ['meals' => $meals]);
+  }
 
   public function create() {
     $categories = Category::all();
