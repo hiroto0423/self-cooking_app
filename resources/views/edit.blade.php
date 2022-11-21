@@ -5,6 +5,7 @@
   <h1 class="edit-wrapper__title">レシピ編集</h1>
   <form action="/meals/{{$meal->id}}/update" method="POST" class="edit-form"enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <div class="edit-form__name-div">
       <label for="name" class="edit-form__name-lab">料理名</label>
       <input type="text" class="edit-form__name-inp" id="name" name="name" value="{{$meal->name}}">

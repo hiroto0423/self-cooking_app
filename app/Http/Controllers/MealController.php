@@ -48,5 +48,12 @@ class MealController extends Controller
     $categories = Category::all();
     return view('edit' ,['meal' => $meal , 'categories' => $categories]);
   }
+
+  public function update(Meal $meal , Request $request) {
+    $form_content = $request->all();
+    unset($form_content['_token']);
+    $meal->fill($form_content)->save();
+    return redirect('/meals/'.$meal->id);
+  }
 }
 
