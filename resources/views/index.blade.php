@@ -24,6 +24,9 @@
       <input class="search__keyword" type="text" placeholder="料理名検索 ..." value="" name="name">
       <input type="submit" class="" value="検索">
     </form>
+    @if($error !== null)
+    <p>{{$error}}</p>
+    @endif
     @foreach ($meals as $meal)
     <div class="meal-card">
       <img src="{{ asset($meal->image->path) }}" alt="meal-img" class="meal-card__img">

@@ -12,7 +12,8 @@ class MealController extends Controller
 {
     public function top() {
       $meal = null;
-      return view('top',['meal' => $meal] );  
+      $categories = Category::all();
+      return view('top',['meal' => $meal,'categories'=>$categories] );  
     }
     
     public function index() {
@@ -23,35 +24,28 @@ class MealController extends Controller
     }
 
     public function search(Request $request) {
-      $meal = Meal::query();
-      if($request->category_id !== null) {
-        $meal->where('category_id',$request->category_id);
-      }
-      if($request->difficulty !== null) {
-        $meal->where('difficulty',$request->difficulty);;
-      }
-      if($request->min_cost !== null && $request->max_cost !== null) {
-        $meal->whereBetween('cost', [$request->min_cost, $request->max_cost]);
-      }
-      if($request->min_cost !== null && $request->max_cost == null ) {
-        $meal->where('cost','>=',$request->min_cost );
-      }
-      if($request->min_cost == null && $request->max_cost !== null ) {
-        $meal->where('cost','<=',$request->max_cost );
-      }
-      if($request->name !== null) {
-        $meal->where( 'name', 'like', '%'.$request->name.'%' );
-      }
-
-      $meals = $meal->get();
+      $meals = Meal::doSearch($request->name,$request->category_id,$request->difficulty,$request->min_cost,$request->max_cost);
       $categories = Category::all();
-      return view('index',compact('meals','categories'));
+      if($meals->all() == null) {
+        $error = '検索結果がヒットしませんでした';
+      }else {
+        $error = null;
+      }
+      return view('index',compact('meals','categories','error'));
     }
 
-    public function random() {
-      $user = Auth::user();
-      $meal = $user->meals->random();
-      return view('top', ['meal' => $meal]);
+    public function random(Request $request) {
+      $request->name = null;
+      $meals = Meal::doSearch($request->name,$request->category_id,$request->difficulty,$request->min_cost,$request->max_cost);
+      try {
+        $meal = $meals->random();
+        $error = null;
+      } catch (\Throwable $th) {
+          $meal = null;
+          $error = '検索結果にヒットしませんでした';
+      } 
+      $categories = Category::all();
+      return view('top',['meal' => $meal,'categories'=>$categories,'error'=>$error] );  
     }
     
     public function create() {
