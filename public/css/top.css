@@ -1,0 +1,101 @@
+.random-form {
+  padding: 10px 15px;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px grey;
+}
+.random-form__head {
+  margin:auto 0;
+  font-weight: bold;
+}
+
+.random-form-cost {
+  width: 40%;
+}
+
+.random-form-cost{
+  margin-left: 10px;
+}
+.random-form-cost__span,
+.random-form-cost-between {
+  padding: 0 10px;
+}
+
+.random-form-mincost__inp,
+.random-form-maxcost__inp {
+  width: 100px;
+}
+
+.random-meal-card {
+  width: 400px;
+  height: 400px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px grey;
+  margin: 0 auto 30px ;
+}
+.random-meal-card__img {
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+  object-fit: cover;
+}
+.random-meal-card__title {
+  font-weight: bold;
+  margin: 30px 0 20px 0;
+  text-align: center;
+  font-size: 25px;
+}
+
+.random-meal-card__text {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.random-meal-card__text-a {
+  font-size: 15px;
+  text-align: center;
+  display: block;
+}
+.app-rule {
+  width: 500px;
+  height: 400px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px grey;
+  margin: 0 auto 30px ;
+  padding: 30px;
+}
+.random-detail {
+  width: 1000px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.app-rule-info {
+  margin: 20px auto;
+}
+.app-rule-head {
+  text-align: center;
+  margin: 30px auto ;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Hannari";
+}
+
+.app-rule__list {
+  line-height: 40px;
+  padding-left: 30px;
+}
+.app-rule__item { font-family: "Hannari"; }
+
+.error-message {
+  margin: 30px auto;
+  font-size: 30px;
+  text-align: center;
+}

@@ -1,0 +1,45 @@
+.show-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+.show-wrapper__button {
+  width: 30%;
+  margin-bottom: 30px
+}
+
+.show-wrapper__button-delete {
+  color: #007bff;
+}
+
+.show-meal-card {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.show-img-container {
+  width: 40%;
+  border-radius: 20px;
+  margin-bottom: 30px
+}
+.show-img-container img{
+  width: 100%;
+  border-radius: 20px;
+}
+.show-detail {
+  width: 55%;
+  background: white;
+  height: fit-content;
+  border-radius: 20px;
+  padding: 20px;
+}
+.show-detail__name {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.show-detail__table {
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+.show-detail__table th {
+  width: 20%;
+}

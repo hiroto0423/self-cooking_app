@@ -33,5 +33,9 @@ class CategoriesTableSeeder extends Seeder
             'name' => 'デザート'
         ];
         Category::create($param);
+        $param = [
+            'name' => 'その他'
+        ];
+        Category::create($param);
     }
 }

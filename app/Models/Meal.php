@@ -58,8 +58,7 @@ class Meal extends Model
         if ($name !== null) {
             $meal->where('name', 'like', '%'.$name.'%');
         }
-        $meals = $meal->get();
-        return $meals;
+        return $meal;
     }
 
 }

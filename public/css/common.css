@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f2f2;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+main {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 30px;
+  text-align: center;
+  margin: 30px auto;
+}
+.button {
+  background-color: rgb(255, 255, 255);
+  font-weight: bold;
+  box-shadow: gray 2px 2px 4px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 5px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+

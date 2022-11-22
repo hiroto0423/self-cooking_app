@@ -18,14 +18,14 @@ class MealController extends Controller
     
     public function index() {
       $user = Auth::user();
-      $meals = $user->meals()->paginate(9);
+      $meals = $user->meals()->paginate(12);
       $categories = Category::all();
       return view('index', ['meals' => $meals, 'categories' => $categories,'error' => null]);
     }
 
     public function search(Request $request) {
       $meals = Meal::doSearch($request->name,$request->category_id,$request->difficulty,$request->min_cost,$request->max_cost);
-      $meals = $meals->paginate(9);
+      $meals = $meals->paginate(12);
       $categories = Category::all();
       return view('index',compact('meals','categories'));
     }
@@ -38,7 +38,7 @@ class MealController extends Controller
         $error = null;
       } catch (\Throwable $th) {
           $meal = null;
-          $error = 'データがありません';
+          $error = '該当するデータがありません';
       } 
       $categories = Category::all();
       return view('top',['meal' => $meal,'categories'=>$categories,'error'=>$error] );  

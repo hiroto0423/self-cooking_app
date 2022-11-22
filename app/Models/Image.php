@@ -10,7 +10,7 @@ class Image extends Model
     use HasFactory;
     protected $guarded = array('id');
 
-    public function todo(){
-        return $this->hasOne('App\Models\Todo');
+    public function meal(){
+        return $this->hasOne('App\Models\Meal');
     }
 }

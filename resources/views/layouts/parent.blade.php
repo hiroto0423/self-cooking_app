@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/header.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/button.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/create.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/show.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/top.css') }}" />
+  <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
 </head>
 <body>
 @component('components.header')
