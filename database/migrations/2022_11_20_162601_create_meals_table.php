@@ -21,6 +21,7 @@ class CreateMealsTable extends Migration
             $table->integer('image_id');
             $table->integer('cost');
             $table->integer('difficulty');
+            $table->text('ingredient',200);
             $table->text('way',200);
             $table->timestamps();
             $table->softDeletes();
