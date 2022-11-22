@@ -16,12 +16,14 @@ class MealController extends Controller
     }
     
     public function index() {
-      $meals = Meal::all();
+      $user = Auth::user();
+      $meals = $user->meals;
       return view('index', ['meals' => $meals]);
     }
 
     public function random() {
-      $meal = Meal::inRandomOrder()->first();
+      $user = Auth::user();
+      $meal = $user->meals->random();
       return view('top', ['meal' => $meal]);
     }
     
