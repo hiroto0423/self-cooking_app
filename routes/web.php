@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth')->group(function () {
     Route::get('/',[MealController::class,'top']);
     Route::get('/meals',[MealController::class, 'index']);
+    Route::get('/meals/search',[MealController::class, 'search']);
     Route::get('/meals/random',[MealController::class,'random']);
     Route::get('/meals/create',[MealController::class,'create']);
-    Route::post('/meals/create',[MealController::class, 'store']);
+    Route::post('/meals/store',[MealController::class, 'store']);
     Route::get('/meals/{meal}',[MealController::class, 'show']);
     Route::get('/meals/{meal}/edit',[MealController::class, 'edit']);
     Route::put('/meals/{meal}/update', [MealController::class, 'update']);

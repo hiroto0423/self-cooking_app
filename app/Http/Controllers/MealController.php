@@ -18,7 +18,34 @@ class MealController extends Controller
     public function index() {
       $user = Auth::user();
       $meals = $user->meals;
-      return view('index', ['meals' => $meals]);
+      $categories = Category::all();
+      return view('index', ['meals' => $meals, 'categories' => $categories]);
+    }
+
+    public function search(Request $request) {
+      $meal = Meal::query();
+      if($request->category_id !== null) {
+        $meal->where('category_id',$request->category_id);
+      }
+      if($request->difficulty !== null) {
+        $meal->where('difficulty',$request->difficulty);;
+      }
+      if($request->min_cost !== null && $request->max_cost !== null) {
+        $meal->whereBetween('cost', [$request->min_cost, $request->max_cost]);
+      }
+      if($request->min_cost !== null && $request->max_cost == null ) {
+        $meal->where('cost','>=',$request->min_cost );
+      }
+      if($request->min_cost == null && $request->max_cost !== null ) {
+        $meal->where('cost','<=',$request->max_cost );
+      }
+      if($request->name !== null) {
+        $meal->where( 'name', 'like', '%'.$request->name.'%' );
+      }
+
+      $meals = $meal->get();
+      $categories = Category::all();
+      return view('index',compact('meals','categories'));
     }
 
     public function random() {
