@@ -18,31 +18,27 @@ class MealController extends Controller
     
     public function index() {
       $user = Auth::user();
-      $meals = $user->meals;
+      $meals = $user->meals()->paginate(9);
       $categories = Category::all();
-      return view('index', ['meals' => $meals, 'categories' => $categories]);
+      return view('index', ['meals' => $meals, 'categories' => $categories,'error' => null]);
     }
 
     public function search(Request $request) {
       $meals = Meal::doSearch($request->name,$request->category_id,$request->difficulty,$request->min_cost,$request->max_cost);
+      $meals = $meals->paginate(9);
       $categories = Category::all();
-      if($meals->all() == null) {
-        $error = '検索結果がヒットしませんでした';
-      }else {
-        $error = null;
-      }
-      return view('index',compact('meals','categories','error'));
+      return view('index',compact('meals','categories'));
     }
 
     public function random(Request $request) {
       $request->name = null;
-      $meals = Meal::doSearch($request->name,$request->category_id,$request->difficulty,$request->min_cost,$request->max_cost);
+      $meals = Meal::doSearch($request->name,$request->category_id,$request->difficulty,$request->min_cost,$request->max_cost)->get();
       try {
         $meal = $meals->random();
         $error = null;
       } catch (\Throwable $th) {
           $meal = null;
-          $error = '検索結果にヒットしませんでした';
+          $error = 'データがありません';
       } 
       $categories = Category::all();
       return view('top',['meal' => $meal,'categories'=>$categories,'error'=>$error] );  

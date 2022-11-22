@@ -24,9 +24,14 @@
       <input class="search__keyword" type="text" placeholder="料理名検索 ..." value="" name="name">
       <input type="submit" class="" value="検索">
     </form>
-    @if($error !== null)
-    <p>{{$error}}</p>
+    @if (count($meals) >0)
+      <p>全{{ $meals->total() }}件中 
+      {{  ($meals->currentPage() -1) * $meals->perPage() + 1}} ~ 
+      {{ (($meals->currentPage() -1) * $meals->perPage() + 1) + (count($meals ) -1)  }}件</p>
+    @else
+      <p>データがありません。</p>
     @endif
+      {{ $meals->links() }}
     @foreach ($meals as $meal)
     <div class="meal-card">
       <img src="{{ asset($meal->image->path) }}" alt="meal-img" class="meal-card__img">
