@@ -37,3 +37,31 @@ main {
 }
 
 
+/* validation */
+.real-check {
+  display: none;
+  color: red;
+  margin-left: 10px;
+}
+
+.visible {
+  display: inline-block;
+  margin: 15px 0 15px 40%;
+}
+
+.hidden {
+  display: none;
+}
+.create-form__submit-button {
+  display: block;
+  margin: 0 auto;
+}
+.error-detection {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+.validetion-error-message {
+  color: red;
+  line-height: 20px;
+  margin: 20px 0 20px 40%;
+}

@@ -23,10 +23,10 @@
   </div>
     <div class="random-form-cost">
       <span class="random-form-cost__span">最低金額</span>
-      <input type="number"name='min_cost'class="random-form-mincost__inp">
+      <input type="number"name='min_cost'class="random-form-mincost__inp"min="0">
         <span class="random-form-cost-between">~</span>
         <span class="random-form-cost__span">最高金額</span>
-      <input type="number"name='max_cost' class="random-form-maxcost__inp">
+      <input type="number"name='max_cost' class="random-form-maxcost__inp"min="0">
     </div>
   </form>
   @if(isset($error))

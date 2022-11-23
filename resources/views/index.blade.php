@@ -22,10 +22,10 @@
       </div>
       <div class="search-form-cost">
         <span class="search-form-mincost__text">最低金額</span>
-        <input type="number"name='min_cost'class="search-form-mincost__inp">円
+        <input type="number"name='min_cost'class="search-form-mincost__inp"min="0">円
           <span class="search-form-between">~</span>
           <span class="search-form-maxcost__text">最高金額</span>
-        <input type="number"name='max_cost'class="search-form-maxcost__int">円
+        <input type="number"name='max_cost'class="search-form-maxcost__int"min="0">円
       </div>
       <input class="search-form-name__inp" type="text" placeholder="料理名検索 ..." value="" name="name">
       <input type="submit" class="search-form-submit__button" value="検索">

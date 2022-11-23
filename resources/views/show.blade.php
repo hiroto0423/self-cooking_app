@@ -4,7 +4,7 @@
 <div class="show-wrapper">
   <h1 class="show-wrapper__title title">料理詳細</h1>
   <div class="show-wrapper__button flex">
-    <a href="/meals" onclick="history.back(-1);return false;"class="show-wrapper__button-back button">戻る</a>
+    <a href="/meals" class="show-wrapper__button-back button">戻る</a>
     <a href="/meals/{{$meal->id}}/edit" class="show-wrapper__button-edit button">編集</a>
     <form action="/meals/{{$meal->id}}/delete" method="POST">
       @csrf

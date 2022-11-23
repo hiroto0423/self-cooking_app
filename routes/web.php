@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/',[MealController::class,'top']);
     Route::get('/meals',[MealController::class, 'index']);
     Route::get('/meals/search',[MealController::class, 'search']);
@@ -25,5 +25,5 @@ use Illuminate\Support\Facades\Route;
     Route::get('/meals/{meal}/edit',[MealController::class, 'edit']);
     Route::put('/meals/{meal}/update', [MealController::class, 'update']);
     Route::delete('meals/{meal}/delete',[MealController::class,'delete']);
-// });
+});
 require __DIR__.'/auth.php';

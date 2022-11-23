@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\MealRequest;
 
 class MealController extends Controller
 {
@@ -49,7 +50,8 @@ class MealController extends Controller
       return view('create' ,['categories' => $categories]);
     }
 
-    public function store(Request $request) {
+    public function store(MealRequest $request) {
+      dd($request);
       $dir = 'meal-imges';
       $file_name = $request->file('img')->getClientOriginalName();
       $request->file('img')->storeAs('public/' . $dir, $file_name);
@@ -77,7 +79,7 @@ class MealController extends Controller
       return view('edit' ,['meal' => $meal , 'categories' => $categories]);
     }
 
-    public function update(Meal $meal , Request $request) {
+    public function update(Meal $meal , MealRequest $request) {
       $form_content = $request->all();
       unset($form_content['_token']);
       $meal->fill($form_content)->save();
