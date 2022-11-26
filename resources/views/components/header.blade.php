@@ -1,7 +1,7 @@
 <header>
   <div class="header-logo">
     <img src="{{ asset('selcook icon.png') }}" alt="app-icon" class="header-icon">
-    <h1 class="header-logo__ttl">selcook</h1>
+    <h1 class="header-logo__ttl">ManCook</h1>
   </div>
   <nav class="header-log__nav">
     <ul class="header-log__list flex">
