@@ -51,7 +51,6 @@ class MealController extends Controller
     }
 
     public function store(MealRequest $request) {
-      dd($request);
       $dir = 'meal-imges';
       $file_name = $request->file('img')->getClientOriginalName();
       $request->file('img')->storeAs('public/' . $dir, $file_name);
